@@ -1,0 +1,15 @@
+services:
+
+- type: web
+  name: pigeon-surveillance-api
+  runtime: node
+  plan: free
+  rootDir: backend
+  buildCommand: npm install
+  startCommand: npm start
+  healthCheckPath: /api/status
+  envVars:
+  - key: NODE_ENV
+    value: production
+  - key: FRONTEND_ORIGINS
+    value: https://YOUR_GITHUB_USERNAME.github.io
