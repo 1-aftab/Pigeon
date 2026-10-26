@@ -1,0 +1,302 @@
+:root {
+--bg: #050807;
+--panel: #0b1210;
+--green: #7dffae;
+--muted: #8c9d93;
+--border: #20372a;
+}
+
+* {
+  box-sizing: border-box;
+  }
+
+body {
+margin: 0;
+min-height: 100vh;
+background: var(--bg);
+color: #e4f5e9;
+font-family: system-ui, sans-serif;
+overflow-x: hidden;
+}
+
+.grid {
+position: fixed;
+inset: 0;
+pointer-events: none;
+background-image:
+linear-gradient(#7dffae09 1px, transparent 1px),
+linear-gradient(90deg, #7dffae09 1px, transparent 1px);
+background-size: 32px 32px;
+}
+
+.container {
+position: relative;
+width: min(100% - 32px, 540px);
+margin: auto;
+padding: 25px 0;
+min-height: 100vh;
+display: flex;
+flex-direction: column;
+}
+
+header, footer {
+display: flex;
+justify-content: space-between;
+align-items: center;
+gap: 10px;
+}
+
+.logo {
+font-size: 24px;
+font-weight: 900;
+color: var(--green);
+letter-spacing: 3px;
+}
+
+.logo span {
+font-size: 10px;
+vertical-align: top;
+}
+
+.badge, .classified, .tiny, footer {
+font-family: monospace;
+font-size: 10px;
+letter-spacing: 1px;
+}
+
+.badge {
+color: var(--green);
+border: 1px solid var(--border);
+padding: 8px;
+}
+
+.dot {
+display: inline-block;
+width: 6px;
+height: 6px;
+background: var(--green);
+border-radius: 50%;
+margin-right: 5px;
+}
+
+.panel {
+margin: auto 0;
+padding: 30px 23px;
+background: linear-gradient(145deg, #0d1712, #080c0a);
+border: 1px solid var(--border);
+box-shadow: 0 0 50px #00ff5510;
+text-align: center;
+}
+
+.hidden {
+display: none !important;
+}
+
+.classified {
+color: var(--green);
+margin-bottom: 25px;
+}
+
+.eye {
+font-size: 55px;
+color: var(--green);
+text-shadow: 0 0 25px #7dffae77;
+margin: 10px 0;
+}
+
+h1 {
+font-size: clamp(27px, 7vw, 40px);
+line-height: 1.15;
+letter-spacing: -1px;
+overflow-wrap: anywhere;
+}
+
+h1 span {
+color: var(--green);
+}
+
+h2 {
+font-size: 20px;
+letter-spacing: 2px;
+}
+
+.muted {
+color: var(--muted);
+line-height: 1.8;
+font-size: 14px;
+}
+
+.notice {
+display: flex;
+gap: 12px;
+text-align: left;
+padding: 14px;
+margin: 25px 0;
+border: 1px solid var(--border);
+background: #07100b;
+color: var(--green);
+font-size: 11px;
+}
+
+.notice p {
+color: var(--muted);
+line-height: 1.6;
+margin-bottom: 0;
+}
+
+.primary {
+width: 100%;
+padding: 17px 12px;
+border: 1px solid var(--green);
+background: var(--green);
+color: #061009;
+font-weight: 900;
+letter-spacing: 1px;
+cursor: pointer;
+transition: .2s;
+}
+
+.primary:active {
+transform: scale(.98);
+}
+
+.primary span {
+margin-left: 8px;
+}
+
+.tiny {
+color: #64756a;
+line-height: 1.8;
+margin-top: 20px;
+}
+
+.radar {
+width: 145px;
+height: 145px;
+margin: 30px auto;
+border: 1px solid #356a49;
+border-radius: 50%;
+position: relative;
+overflow: hidden;
+background: #07160d;
+}
+
+.radar-ring {
+position: absolute;
+inset: 20%;
+border: 1px solid #356a49;
+border-radius: 50%;
+}
+
+.ring2 {
+inset: 40%;
+}
+
+.radar-sweep {
+position: absolute;
+inset: 0;
+background: conic-gradient(transparent 0 75%, #7dffae55);
+animation: spin 2s linear infinite;
+border-radius: 50%;
+}
+
+.radar-center {
+position: absolute;
+inset: 0;
+display: grid;
+place-items: center;
+font-size: 35px;
+}
+
+@keyframes spin {
+to { transform: rotate(360deg); }
+}
+
+.progress-track {
+height: 8px;
+background: #1a2b20;
+margin-top: 25px;
+overflow: hidden;
+}
+
+#progressBar {
+height: 100%;
+width: 0;
+background: var(--green);
+transition: width .2s;
+box-shadow: 0 0 12px var(--green);
+}
+
+#progressText {
+text-align: right;
+color: var(--green);
+font: 12px monospace;
+margin: 8px 0 20px;
+}
+
+.logs {
+text-align: left;
+font: 11px/2 monospace;
+color: var(--green);
+overflow-wrap: anywhere;
+}
+
+.pigeon {
+font-size: 85px;
+animation: bob 1s ease-in-out infinite alternate;
+}
+
+@keyframes bob {
+to { transform: translateY(-8px) rotate(5deg); }
+}
+
+.alert {
+color: #ff7777;
+font: 11px monospace;
+margin-top: 15px;
+}
+
+.report {
+text-align: left;
+border: 1px solid var(--border);
+margin: 25px 0;
+padding: 5px 15px;
+}
+
+.report div {
+padding: 13px 0;
+display: flex;
+flex-direction: column;
+gap: 6px;
+border-bottom: 1px solid #1a2b20;
+}
+
+.report div:last-child {
+border-bottom: 0;
+}
+
+.report span {
+color: var(--muted);
+font: 10px monospace;
+}
+
+.report strong {
+color: var(--green);
+font-size: 12px;
+overflow-wrap: anywhere;
+}
+
+footer {
+color: #64756a;
+padding: 20px 0 5px;
+gap: 15px;
+}
+
+footer span:last-child {
+text-align: right;
+}
+
+@media (max-width: 380px) {
+.panel { padding: 25px 16px; }
+footer { font-size: 8px; }
+  }
